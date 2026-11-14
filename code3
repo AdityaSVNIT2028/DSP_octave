@@ -1,0 +1,21 @@
+clc;
+clear all;
+% x(n) = exp ( 0.1 + i*0.3)n;
+
+n = -10:10;
+x_n = exp((0.1 + i * (0.3)) * n);
+# magnitude response
+subplot(2, 2, 1);
+stem(n, abs(x_n));
+
+# phase response
+subplot(2, 2, 2);
+stem(n, angle(x_n));
+
+# real part
+subplot(2, 2, 3);
+stem(n, real(x_n));
+
+# imaginary part
+subplot(2, 2, 4);
+stem(n, imag(x_n));
