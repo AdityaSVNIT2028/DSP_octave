@@ -1,0 +1,15 @@
+# y(n) - 0.5 *y(n-1) = x(n);
+n = -10:20;
+d = (n==0); %impulse fn
+u = (n>=0); % unit step fn
+
+y_d = filter(1, [1 -0.5], d); % impulse response
+y_u = filter(1, [1 -0.5], u); % step response
+
+subplot(1, 2, 1);
+stem(n, y_d);
+title("impulse response");
+
+subplot(1, 2, 2);
+stem(n, y_u);
+title("step response");
