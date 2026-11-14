@@ -1,0 +1,18 @@
+x = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1];
+nx = -3:9;
+
+n_offset= 21;
+n_full = -20:20;
+x_full = zeros(1, length(n_full));
+x_full(nx + n_offset) = x;
+
+# (a) x1(n) = 2*x(n-5) - 3*x(n+4);
+n = -10:15;
+x1_n = 2*x_full(n-5+n_offset) - 3*x_full(n+4+n_offset);
+subplot(1, 2, 1);
+stem(n, x1_n );
+
+# (b) x2(n) = x(3-n) + x(n)*x(n-2);
+x2_n = x_full(3-n + n_offset) + x_full(n + n_offset) .* x_full(n-2 + n_offset);
+subplot(1, 2, 2);
+stem(n, x2_n);
