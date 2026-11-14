@@ -1,0 +1,15 @@
+% y(n) - y(n-1) + 0.9y(n-2) = x(n);
+n = -20:100;
+% (a) impulse response
+d = (n==0);
+y_d = filter(1, [1 -1 0.9], d);
+subplot(1, 2, 1);
+stem(n, y_d);
+title("impulse response");
+
+%(b) unit step resonse
+u = (n>=0);
+y_u = filter(1, [1, -1, 0.9], u);
+subplot(1, 2, 2);
+stem(n, y_u);
+title(" unit step response");
