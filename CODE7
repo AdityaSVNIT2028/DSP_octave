@@ -1,0 +1,13 @@
+pkg load signal
+n = -5:5;
+nx = -3:3;
+offset = 6;
+x = zeros(1, length(n));
+x(offset + nx ) = [3  11 7 0 -1 4 2];
+w = randn(1, length(x));
+y = zeros(1, length(n));
+y(nx+2+offset) = x(nx+offset);
+y = y + w;
+[rxy l1] = xcorr(x, y);
+subplot(1, 1, 1);
+stem(l1, rxy);
